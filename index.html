@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .qtyStyle {
+            position: absolute;
+            right: 750px;
+        }
+       
+    </style>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <!-- endbuild -->
+    
+    <title>Shopeasy</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand mr-auto" href="#"><img src="img/logo.png" height="50" width="50"></a>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#"><h1>Shopeasy</h1></a></li>
+                 </ul>
+                 <a class="btn nav-link btn-warning" id="reserveTableButton">
+                    <span></span> Add Product
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="reserveTableModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Product</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>                 
+                        <div class="form-group row">
+                            <label for="name" class="col-md-2 col-form-label">Name</label>
+                            <div class="col-5 col-md-3 col-12">
+                                <input type="text" class="form-control" id="Pname" name="name" 
+                                placeholder="Name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="category" class="col-md-2 col-form-label">Category</label>
+                            <div class="col-5 col-md-3 col-12">
+                                <input type="text" class="form-control" id="Pcategory" name="category" 
+                                placeholder="Category">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="area" class="col-md-2 col-form-label">Area</label>
+                            <div class="col-5 col-md-3 col-12">
+                                <input type="text" class="form-control" id="area" name="area" 
+                                placeholder="Area">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" onclick="storeData()" class="btn btn-primary">Done</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <div class="row row-content">
+            <div class="col">
+                <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid"
+                                src="img/uthappizza.png" alt="uthappizza">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Uthappizza <span class="badge badge-danger">HOT</span> <span class="badge badge-pill badge-secondary">$4.99</span></h2>
+                                <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>            
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="img/buffet.png" alt="buffet">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
+                                <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="img/alberto.png" alt="alberto">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="mt-0">Alberto Somayya</h2>
+                                <h4>Executive Chef</h4>
+                                <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mycarousel" data-slide-to="1"></li>
+                        <li data-target="#mycarousel" data-slide-to="2"></li>
+                    </ol>
+                    <a class="carousel-control-prev" href="#mycarousel"role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#mycarousel"role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                    <button class="btn btn-danger btn-sm" id="carouselButton">
+                        <span class="fa fa-pause"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-content ">
+            <div class="col-12 col-xl-12 ">
+                <h2>Product Categories</h2>
+                <div> 
+                    <div class="card">
+                        <div class="list" id="list">
+                            <div class="list-item">
+
+                            </div>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+       </div>
+
+    <footer>
+        <div class="container">
+            <div class="row footer">             
+                <div class="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./aboutus.html">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-7 col-sm-5">
+                    <h5>Our Address</h5>
+                    <address>
+		              121, Clear Water Bay Road<br>
+		              Clear Water Bay, Kowloon<br>
+		              HONG KONG<br>
+		              <i class="fa fa-phone fa-lg"></i>: +852 1234 5678<br>
+		              <i class="fa fa-fax fa-lg"></i>: +852 8765 4321<br>
+		              <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+		           </address>
+                </div>
+                <div class="col-12 col-sm-4 align-self-center">
+                    <div class="text-center">
+                        <a class="btn bt-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a class="btn bt-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn bt-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a class="btn bt-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn bt-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube fa-lg"></i></a>
+                        <a class="btn bt-social-icon" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+                    </div>
+                </div>
+           </div>
+           <div class="row justify-content-center">             
+                <div class="col-auto">
+                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                </div>
+           </div>
+        </div>
+    </footer>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <!-- build:js js/main.js -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <!-- endbuild -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+        apiKey: "AIzaSyCwSJIVfGpOqFK3_8eohcvsEaJyGdfbvLY",
+        authDomain: "shopeasy-1998.firebaseapp.com",
+        databaseURL: "https://shopeasy-1998.firebaseio.com",
+        projectId: "shopeasy-1998",
+        storageBucket: "shopeasy-1998.appspot.com",
+        messagingSenderId: "831515080027",
+        appId: "1:831515080027:web:905fb2c99a7c74a97e567e",
+        measurementId: "G-24K012TS84"
+    };
+        firebase.initializeApp(config);
+    </script>  
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    
+    
+    <script >
+        var list = document.querySelector("#list");
+
+        var db = firebase.firestore();
+        var categories = [];
+
+        var collectionRef = db.collection('Items');
+        var query = collectionRef.orderBy("category").get()
+        .then(snapshot => {
+            snapshot.forEach( function(doc) {
+                
+                // list.innerHTML += "<div class='list-item'><p>Category: "+  doc.data().category + "</p><hr /></div>"
+                if (categories.includes(doc.data().category))
+                {
+                    list.innerHTML += "<div role='tabpanel'  id='"+ doc.data().category +"'><div class='card-body'><label for='check' class='d-none d-sm-block'><input type='checkbox' name='check' value='check'>"+ "  " + doc.data().name +" <input type='number' id='quantity' name='quantity' min='1' class='qtyStyle' max='20'></label></div></div>"
+                    // list.innerHTML += ""
+                }
+                else
+                {
+                    //alert(doc.data().category)
+                    var docID = doc.id;
+                    list.innerHTML += "<div class='list-item card-header' role='tab'><h3 class='mb-0'><a data-target='#"+ doc.data().category +"'><small>"+  doc.data().category + "</small></a></h3></div><div role='tabpanel'id='"+ docID +"'><div class='card-body'><label for='check' class='d-none d-sm-block'><input type='checkbox' name='check' value='check'>"+  "  " + doc.data().name +" <input type='number' id='quantity' class='qtyStyle' name='quantity' min='1' max='20'></label></div></div>"
+                    categories.push(doc.data().category);
+                }
+            });
+        })
+
+       
+
+        function storeData()
+        {    
+            // var db = firebase.firestore();
+
+            var productName = document.getElementById("Pname");
+            var productCategory = document.getElementById("Pcategory").value;
+
+           // var db = firebase.firestore();
+            alert(productName);
+            db.collection("Items").doc().set({
+                name: productName.value.toString(),
+                category: "xyz",
+            })
+            .then(function() {
+                alert("Product succesfully added!");
+            })
+            .catch(function(error) {
+                alert("error");
+            });
+        }
+    </script>
+</body>
+
+</html>
